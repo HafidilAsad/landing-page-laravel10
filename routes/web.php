@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminUserController;
 use App\Models\BeritaModel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
@@ -29,7 +30,6 @@ Route::get('/profile', function () {
 Route::get('/login', [LoginController::class, 'index']);
 Route::post('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-
 // Route::get('/profile/{number}', [HomeController::class, 'profile']);
 
 Route::get('/berita', [BeritaController::class, 'index']);
@@ -43,4 +43,8 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::view('/services', 'services')->name('services');
 Route::view('/about', 'about')->name('about');
 Route::view('/contact', 'contact')->name('contact');
+
+
+
+Route::get("/admin",[AdminUserController::class, "index"]);
 
